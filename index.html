@@ -73,7 +73,7 @@
                 padding: 0;
                 position: fixed;
                 top: 0.1px;
-                padding-left: 20px;
+                padding-left: 40px;
                 margin-top: 10px;
 
             }
@@ -194,7 +194,7 @@
     <body>
         <div class="header"> <!-- Die class header ist un für den Inhalt verantworlich, der im Style-Teil .header formatiert wurde. -->
                 <span id="logo">
-                    <a href="https://de.wikipedia.org/wiki/Die_Welt" target="_blank"><img src="https://cdn.pixabay.com/photo/2016/04/02/21/01/world-1303628_960_720.png" width="30" height="30" style="position: relative"></a>
+                    <a href="https://de.wikipedia.org/wiki/Die_Welt" target="_blank"><img src="https://cdn.pixabay.com/photo/2016/04/02/21/01/world-1303628_960_720.png" width="30" height="30" style="position: absolute; top:3px; left:12px; "></a>
                 </span> <!--href erzeugt einen Hyperlink zu einer Website, welcher auf den Platzhalter "img" gelegt wird. Über scr wird die Bild-Datei geladen und direkt über "width" und "height" zugeschnitten.-->
                 <h3>Testmap for SMI Project <!--Hier stehlt der Titel des Headers-->
                                 <button id="myBtn" >Downloads</button></h3> <!--Dieser Button öffnet das Modal-Feld -->
@@ -203,15 +203,14 @@
             <div id="myModal" class="modal"> <!-- Das Modal-Feld wird erzeugt. Wie zuvor im Header werden hier Text, Links mit Bildern oder etc. eingfügt.--> 
                 <div class="modal-content">
                     <span class="close">&times;</span>
-                        <p>Hier können Informationen zur Benutzung der Seite stehen. Oder es könnten an dieser Stelle Downloadlinks eingefügt werden. Zum Beispiel:<br/>
-                        <a href="https://github.com/SarahNadineH/QGIS2web_Example_Map" target="_blank"><img src="https://banner2.cleanpng.com/20180709/lgb/kisspng-computer-icons-download-github-clip-art-github-icon-5b44289596fd85.7749119715311934936185.jpg" width="15" height="15"></a> Link zur Githubpage <br/>
+                        <p>Hier können Informationen zur Benzutung der Seite stehen. Oder es könnten an dieser Stelle Downloadlinks eingefügt werden.<br/>
+                        <a href="https://github.com/SarahNadineH/QGIS2web_Example_Map" target="_blank"><img src="https://banner2.cleanpng.com/20180709/lgb/kisspng-computer-icons-download-github-clip-art-github-icon-5b44289596fd85.7749119715311934936185.jpg" width="15" height="15"></a> Link zu Github <br/>
                         <a href="https://github.com/SarahNadineH/QGIS2web_Example_Map/blob/master/data/rhine.geojson" target="_blank"><img src="https://banner2.cleanpng.com/20180709/lgb/kisspng-computer-icons-download-github-clip-art-github-icon-5b44289596fd85.7749119715311934936185.jpg" width="15" height="15"></a> Rhein-Layer als GeoJSON <br/>
                         <a href="https://github.com/SarahNadineH/QGIS2web_Example_Map/blob/master/data/rivers.geojson" target="_blank"><img src="https://banner2.cleanpng.com/20180709/lgb/kisspng-computer-icons-download-github-clip-art-github-icon-5b44289596fd85.7749119715311934936185.jpg" width="15" height="15"></a> Flüsse-Layer als GeoJSON <br/>
                 </div>
             </div>
 
 <!--Im "script" befinden sich die .js Daten. Hier die Variablen um das Modal-Feld bei Anklicken schließen und öffnen zu können. Es wird dabei auf die IDs myModal und myBtn sowie die class=close zugegriffen.-->
-        <script>
         var modal = document.getElementById("myModal");
         var btn = document.getElementById("myBtn");
         var span = document.getElementsByClassName("close")[0];
