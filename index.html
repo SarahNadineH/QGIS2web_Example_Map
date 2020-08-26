@@ -25,7 +25,7 @@
         <!--Funktion Groupedlayercontroll aktiviet um Legende zu bearbeiten s.h. line:    -->
         <link rel="stylesheet" href="css/leaflet.groupedlayercontrol.css" />
 
-<!--Hier beginnt der Style-teil des Scripts, dieser wird normalerweise größtentiels als .css Dateien ausgelagert. Hier sind beispielshaft einige .css Files ausgeschrieben-->
+<!--Hier beginnt der Style-Teil des Scripts, dieser wird normalerweise größtenteils als .css Dateien ausgelagert. Hier sind beispielshaft einige .css Files ausgeschrieben-->
         <style>
         html, #map { /* Legt die Maße für die Karte an */
             width: 100%;
@@ -35,10 +35,9 @@
             margin: 0;
             position: absolute;
             z-index: -1;
-
             }
-            body/* Hier wird die Gestaltungs des Headers vorgenommen, mit zugehörigenm Schriftteil "a" und "h3"*/
-            .container{
+            body
+            .container{ /*Container für die Karte*/
                 position: fixed;
                 top: 36px;
                 bottom: 0px;
@@ -46,6 +45,7 @@
                 left: 0;
                 vertical-align: top;
             }
+ /* Hier wird die Gestaltungs des Headers vorgenommen, mit zugehörigem Schriftteil "a" und "h3"*/
             .header {
                 position: relative;
                 display: all;
@@ -80,7 +80,7 @@
             .header button{
                 font-size: 15px;
             }
-/* Hier  wird die Gestaltung des Massstabs erstellt, mit den einzelnen schwarzen und weißen Teilen, sowie Beschriftung*/
+/* Hier  wird die Gestaltung des Maßstabs erstellt, mit den einzelnen schwarzen und weißen Teilen, sowie Beschriftung*/
             .leaflet-control-better-scale {
                height: 15px;
             }
@@ -143,7 +143,7 @@
             .leaflet-control-better-scale-second-number {
                 left: 95%;
             }
-/*Hier wird das Fenter des "Dowload-Button" erstellt. Dabei handelt es sich um ein Modal-Feld, das ein- und ausschaltbar ist. Es bestehlt aus: dem Modal Fenster, dem Inhalt, dem Close-Button, der Reaktion des Buttons auf die Maus(hover)*/
+/*Hier wird das Fenster des "Download-Button" erstellt. Dabei handelt es sich um ein Modal-Feld, das ein- und ausschaltbar ist. Es besteht aus: dem Modal Fenster, dem Inhalt, dem Close-Button, der Reaktion des Buttons auf die Maus(hover)*/
             .modal {
               display: none; /* Hidden by default */
               position: relative; /* Stay in place */
@@ -189,7 +189,7 @@
 <!-- Hier endet der Style-Teil. Es wird der Tiel erstellt. Dieser wird im Web-Browser im Tab angezeigt.-->        
     <title>🌍Testmap for SMI Project</title> 
 
-<!--  Hier endet der Head-Teil. Es beginnt der Body mit dem Code-Teil der meistens in .js Dateinen abgelegt wird. Dieser werden über den "scr" Befehl geladen. Zusätzlich müssen außerdem noch <div> erstellt werden um auf Objekte zugreifen zu können. Ein div kann an jeder Stelle wieder aufgerufen werden und schafft die "class" die Verbeindung zum Style-Teil.-->
+<!--  Hier endet der Head-Teil. Es beginnt der Body mit dem Code-Teil der meistens in .js Dateinen abgelegt wird. Dieser werden über den "scr" Befehl geladen. Zusätzlich müssen außerdem noch <div> erstellt werden um auf Objekte zugreifen zu können. Ein div kann an jeder Stelle wieder aufgerufen werden und schafft die mit "class" die Verbeindung zum Style-Teil.-->
     </head>
     <body>
         <div class="header"> <!-- Die class header ist un für den Inhalt verantworlich, der im Style-Teil .header formatiert wurde. -->
@@ -229,7 +229,7 @@
         }
         </script>
 
-<!-- Hier beginnt der wichte Teil der Web-GIS Gestalltung: das Laden der in QGIS erstellten Layer und Expresssions (in qgis2web ausgesucht). Diese ligen im .js Datei-Format vor und können deshalb hier direkt geladen werden. Diese werden mit der Ordner-Strukter von qgis2web erstellt. -->
+<!-- Hier beginnt der wichtige Teil der Web-GIS Gestaltung: das Laden der in QGIS erstellten Layer und Expresssions (in qgis2web ausgesucht). Diese ligen im .js Datei-Format vor und können deshalb hier direkt geladen werden. Diese werden mit der Ordner-Strukter von qgis2web erstellt. -->
 
         <div class="container">
             <div id="map"> 
@@ -446,8 +446,8 @@
             }
         }
 
-        /*Hier wird die Variable der Karte erstellt, mit ihren Zoomeigenschaften*/
-        var mapCenter = [48.426,8.146]; /*Hier wird für das Zenter festgelegt, um den Default-Extent einzustellen*/
+/*Hier wird die Variable der Karte erstellt, mit ihren Zoomeigenschaften*/
+        var mapCenter = [48.426,8.146]; /*Hier wird das Center festgelegt, um den Default-Extent einzustellen*/
           // Set up map
         var map = L.map('map', {
             defaultExtentControl: true,
@@ -459,14 +459,16 @@
         }).panTo([48.426,8.146]); /*Setzt den sichtbaren Kartenauschnitt beim Laden auf diese Koordinaten*/
         
         L.control.betterscale().addTo(map); /* Fügt den Maßstab hinzu*/
-        /*L.control.scale().addTo(map);  Eine andere Möglichkeit den Massstab einzufügen, der beim Leaflet-Paket dabei ist. Dieser ist im miterstellten leaflet.css definiert*/ 
+        /*L.control.scale().addTo(map);  Eine andere Möglichkeit den Maßstab einzufügen, der beim Leaflet-Paket dabei ist. Dieser ist im miterstellten leaflet.css definiert*/ 
 
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
-        
+
+/*Erstellt das Widget "Show me where I am"*/
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
-        
+
+/*Erstellt das Widget "Meaure Distance and Areas*/
         var measureControl = new L.Control.Measure({
             position: 'topleft',
             primaryLengthUnit: 'meters',
@@ -482,7 +484,7 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-
+/*Indem hier ein "Pane" erschaffen wird, kann die Hintergrundkarte des OSM als Einstiegs Default Layer geziegt werden und wird um einiges schneller geladen, als wenn erst später die einzelnen Layerinformationen in die Karte geladen werden. Ausserdem können Panes gruppiert werden machen so das handeling des Übereinanderlegens leichter. */
         map.createPane('pane_HintergrundkarteOSMStandard_0');
         map.getPane('pane_HintergrundkarteOSMStandard_0').style.zIndex = 400;
         var layer_HintergrundkarteOSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
